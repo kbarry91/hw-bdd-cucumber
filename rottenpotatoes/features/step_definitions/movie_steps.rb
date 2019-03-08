@@ -44,5 +44,6 @@ When /I (un)?check the following ratings: (.*)/ do |uncheck, rating_list|
 end
 Then /I should see all the movies/ do
   # Make sure that all the movies in the app are visible in the table
-  fail "Unimplemented"
+  # we expect to have a table row for each movie
+  expect(page).to have_selector('tbody tr', count: Movie.count)
 end
