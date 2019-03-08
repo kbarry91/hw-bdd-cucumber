@@ -9,16 +9,19 @@ Given /the following movies exist/ do |movies_table|
   #fail "Unimplemented"
 end
 
+
 Then /(.*) seed movies should exist/ do | n_seeds |
   Movie.count.should be n_seeds.to_i
 end
-
 # Make sure that one string (regexp) occurs before or after another one
 #   on the same page
 
+# Part 3
 Then /I should see "(.*)" before "(.*)"/ do |e1, e2|
   #  ensure that that e1 occurs before e2.
   #  page.body is the entire content of the page as a string.
+  #  Expect e1 to be before e2 (check if sorted)
+  expect(page.body.index(e1)).to be < page.body.index(e2)
   #fail "Unimplemented"
 end
 

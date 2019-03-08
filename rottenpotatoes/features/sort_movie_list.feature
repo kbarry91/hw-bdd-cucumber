@@ -22,10 +22,14 @@ Background: movies have been added to database
   And I am on the RottenPotatoes home page
   Then 10 seed movies should exist
 
+# Part 3: Happy paths for sorting movies by title and by release date
 Scenario: sort movies alphabetically
   When I follow "Movie Title"
-  # your steps here
-
+  # should be sorted in alphabetical order
+  Then I should see "Aladdin" before "Amelie"
+  
 Scenario: sort movies in increasing order of release date
   When I follow "Release Date"
-  # your steps here
+   # should be sorted in order of date
+  Then I should see "Aladdin" before "The Help"
+  
